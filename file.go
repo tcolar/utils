@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
-	"log"
 	"os"
 	"path"
 )
@@ -35,7 +34,6 @@ func RecursiveCopy(src, to string) error {
 			if err != nil {
 				return err
 			}
-			log.Printf("%s %s", path.Join(src, nm), to)
 		}
 	}
 
@@ -45,7 +43,6 @@ func RecursiveCopy(src, to string) error {
 // CreateFolder creates a folder
 // Does nothing if the folder already exists
 func CreateFolder(folder string, mode os.FileMode) error {
-	log.Printf("Create folder %s", folder)
 	f, err := os.Stat(folder)
 	if err == nil {
 		if f.IsDir() {
